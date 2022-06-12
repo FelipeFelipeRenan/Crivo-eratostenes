@@ -15,7 +15,7 @@ bool crivoSeq(int valorLimite, double *tempo) {
   t_inicio = omp_get_wtime();
 
   indicesValPrim[0] = indicesValPrim[1] = 0;
-  for(int i = 2; i <= valorLimite; i++) {
+  for(int i = 2; i < valorLimite; i++) {
     indicesValPrim[i] = 1;
   }
 

@@ -20,7 +20,7 @@ bool crivoMP(int valorLimite, double *tempo) {
     int num_thread = omp_get_thread_num();
 
     #pragma omp for
-    for(int i = 2; i <= valorLimite; i++) {
+    for(int i = 2; i < valorLimite; i++) {
       indicesValPrim[i] = 1;
     }
 
