@@ -4,7 +4,7 @@
 
 bool crivoMP(int valorLimite, double *tempo) {
   
-  int *indicesValPrim = (int*)malloc(valorLimite * sizeof(int));
+  int *indicesValPrim = (int*)calloc(valorLimite, sizeof(int));
 
   if(indicesValPrim == NULL)
     return false;
@@ -21,17 +21,14 @@ bool crivoMP(int valorLimite, double *tempo) {
 
     #pragma omp for
     for(int i = 2; i <= valorLimite; i++) {
-	if (i % 2 == 0 && i > 2)
-          indicesValPrim[i-2] = 0;
-        else
-          indicesValPrim[i-2] = 1;
+      indicesValPrim[i] = 1;
     }
 
-    for(int i = 3; i <= raizValorLimite; i += 2) {
-      #pragma omp for
-      for(int j = i+1; j <= valorLimite; j += 1) {
-        if(j % i == 0) {
-          indicesValPrim[j-2] = 0;
+    for(int i = 2; i*i < valorLimite; i++) {
+      if (indicesValPrim[i] == 1){
+        #pragma omp for
+        for(int j = i*i; j <= valorLimite; j += i) {
+          indicesValPrim[j] = 0;
         }
       }
     }

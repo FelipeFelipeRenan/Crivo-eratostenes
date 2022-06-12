@@ -14,24 +14,21 @@ bool crivoSeq(int valorLimite, double *tempo) {
 
   t_inicio = omp_get_wtime();
 
+  indicesValPrim[0] = indicesValPrim[1] = 0;
   for(int i = 2; i <= valorLimite; i++) {
-    if (i % 2 == 0 && i > 2) {
-      indicesValPrim[i-2] = 0;
-    }else{
-      indicesValPrim[i-2] = 1;
-    }
+    indicesValPrim[i] = 1;
   }
 
-  for(int i = 2; i <= raizValorLimite; i++) {
-    for(int j = i+1; j <= valorLimite;j++) {
-      if(j % i == 0) {
-        indicesValPrim[j-2] = 0;
+  for(int i = 2; i*i < valorLimite; i++) {
+    if (indicesValPrim[i] == 1) {
+      for(int j = i*i; j < valorLimite;j += i) {
+          indicesValPrim[j] = 0;
       }
     }
   }
 
   int qtdPrim = 0;
-  for (int i = 0; i < valorLimite-2; i++)
+  for (int i = 0; i < valorLimite; i++)
     if (indicesValPrim[i] == 1)
       qtdPrim++;
 
