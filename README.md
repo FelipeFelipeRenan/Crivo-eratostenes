@@ -1,7 +1,10 @@
-# Crivo de Eratóstenes
-## _Programação concorrente (CC0021)_
+![crivo](https://user-images.githubusercontent.com/72557256/194676593-72f57172-ed0e-469d-818b-2e17e751205b.png)
 
-O crivo de Eratóstenes é um método de identificar a primalidade dos números até determinado limite N ( N ∈ Naturais). Na tentativa de determinar os números primos de um intervalo [2, n], pode-se utilizar uma alternativa básica para resolver o problema, pela realização do teste de primalidade em cada elemento do intervalo, ou seja, verificar se é divisível somente por 1 e ele mesmo
+<div align="center">
+ <h2>Programação concorrente (CC0021)</h2>
+</div>
+
+O crivo de Eratóstenes é um método de identificar a primalidade dos números até determinado limite N ( N ∈ Naturais). Na tentativa de determinar os números primos de um intervalo [2, n], pode-se utilizar uma alternativa básica para resolver o problema, pela realização do teste de primalidade em cada elemento do intervalo, ou seja, verificar se é divisível somente por 1 e ele mesmo.
 
 ## Features
 
